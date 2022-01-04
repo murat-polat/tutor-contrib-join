@@ -1,0 +1,7 @@
+join-job:
+  image: {{ JOIN_DOCKER_IMAGE }}
+  volumes:
+    - ../plugins/join/apps/settings/tutor.py:/join/tutor.py
+ 
+  depends_on:
+    - lms

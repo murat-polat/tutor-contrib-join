@@ -1,0 +1,15 @@
+############# join plugin
+
+join:
+  image: {{ DOCKER_REGISTRY }}{{ JOIN_DOCKER_IMAGE }}
+  volumes:
+    - ../plugins/join/apps/settings/tutor.py:/join/tutor.py
+    - ../../data/join:/openedx/data
+
+  environment:      
+      SETTINGS: ${EDX_PLATFORM_SETTINGS:-tutor.production}   
+
+  restart: unless-stopped
+  depends_on:
+    - lms
+    
