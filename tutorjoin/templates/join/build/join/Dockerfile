@@ -16,8 +16,6 @@ WORKDIR /join/
 
 RUN git clone https://github.com/murat-polat/JoinApp /join
 
-RUN cd JoinApp
-
 
 RUN pip3 install -r requirements.txt
 
