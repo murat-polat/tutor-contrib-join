@@ -1,4 +1,7 @@
 # join
-{{ JOIN_HOST }}{% if not ENABLE_HTTPS %}:80{% endif %} {
-    reverse_proxy nginx:80
+{{ JOIN_HOST }}{$default_site_port} {
+    request_body {
+        max_size 10MB
+    }
+    import proxy "join:5000"
 }
